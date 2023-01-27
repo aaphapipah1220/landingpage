@@ -1,0 +1,109 @@
+.login-admin {
+    display: block;
+    transform: translate(-50%);
+    width: max-content;
+    margin: 3rem;
+    margin-top: 1.5rem;
+    margin-right: 0;
+    padding: 0.5rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    color: var(--color-blue);
+    background: var(--color-primary);
+    font-size: small;
+    border-radius: 1rem;
+}
+
+.login-admin:hover {
+    background: var(--color-light-dark);
+}
+
+
+.landingpage__body-logo {
+    height: auto;
+    padding: 7rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.landingpage__body-text {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 3.8rem;
+}
+
+.landingpage__body {
+    margin: 0.8rem;
+    margin-top: 0;
+    padding: 4rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.landingpage__body-no-ticket {
+    text-align: center;
+    margin-bottom: 2.8rem;
+}
+
+.landingpage__body-no-ticket h5 {
+    color: var(--color-bg-variant);
+}
+
+.landingpage__body-no-ticket a {
+    color: red;
+}
+
+.landingpage__body-no-ticket a:hover {
+    color: var(--color-primary);
+}
+
+.landingpage__fitur-chat {
+    display: block;
+    padding: 0.7rem 1.7rem;
+    z-index: 2;
+    position: fixed;
+    left: 88%;
+    transform: translate(-50%);
+    bottom: 2rem;
+    display: flex;
+    gap: 0.8rem;
+    border-radius: 3rem;
+    background: var(--color-primary-variant);
+    backdrop-filter: blur(15px);
+}
+
+.landingpage__fitur-chat:hover {
+    background: rgb(176, 218, 176);
+}
+
+.whatsApp-logo {
+    width: max-content;
+    color: var(--color-dark);
+}
+
+.whatsApp-logo:hover {
+    color: green;
+}
+
+
+
+/* =================== LOGIN ================== */
+.login__page {
+    margin-top: 7rem;
+}
+
+.login__page-text {
+    margin-bottom: 2rem;
+}
+
+
+
+/* =================== INPUT TICKET ================== */
+.create__ticket__page-container {
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.create__ticket__page-text {
+    margin-bottom: 0.4rem;
+}

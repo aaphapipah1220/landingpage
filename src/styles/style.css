@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --color-bg: rgb(224, 244, 253);
+    --color-bg-variant: #212158;
+    --color-primary: #4db5ff;
+    --color-primary-variant: rgba(77, 181, 255, 0.4);
+    --color-white: #fff;
+    --color-light: rgba(255, 255, 255, 0.6);
+    --color-dark: rgb(16, 22, 48);
+    --color-light-dark: rgb(55, 64, 83);
+    --color-blue: #060561;
+
+    --transition: all 400ms ease;
+
+    --width-device: 90%;
+    --width-tablet: 70%;
+    --width-desktop: 44%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-wibkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-dark);
+    line-height: 1.7;
+}
+
+
+
+
+/* ================ GENERAL STYLES =============== */
+
+.container {
+    width: var(--width-desktop);
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+section {
+    margin-top: 1.3rem;
+    height: auto;
+}
+
+section > h2, section > h5, section > h4 {
+    text-align: center;
+    color: var(--color-blue);
+}
+
+section > h2 {
+    color: var(--color-primary);
+    margin-bottom: 3rem;
+}
+
+a {
+    color: blue;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+.btn {
+    width: max-content;
+    height: 44px;
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: bold;
+    background: transparent;
+    padding: 0.75rem 1.2rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 2px solid var(--color-primary);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--color-primary);
+    color: var(--color-dark);
+    border-color: var(--color-primary);
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-bg);
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    border: 2px solid var(--color-dark);
+    resize: none;
+    color: var(--color-dark);
+}
+
+input:hover {
+    border: 2px solid var(--color-primary);
+}
+
+
+/*========== MEDIA QUERY ==========*/
+/* ------ medium ------ */
+
+@media screen and (max-width: 1024px) {
+    .container {
+        width: var(--width-tablet);
+    }
+
+    .container.landingpage__container {
+        width: var(--width-tablet);
+    }
+
+    section {
+        margin-top:  2.8rem;
+    }
+}
+
+/* ------ small ------ */
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: var(--width-device);
+    }
+
+    .container.landingpage__container {
+        width: var(--width-device);
+    }
+
+    section > h2 {
+        margin-bottom:  2rem;
+    }
+}
