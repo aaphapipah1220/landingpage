@@ -1,11 +1,11 @@
 const BASE_URL = 'http://localhost:3011';
- 
+
 function getAccessToken() {
-  return localStorage.getItem('accessToken')
+  return sessionStorage.getItem('accessToken')
 }
- 
+
 function putAccessToken(accessToken) {
-  return localStorage.setItem('accessToken', accessToken);
+  return sessionStorage.setItem('accessToken', accessToken);
 }
  
 async function fetchWithToken(url, options = {}) {
@@ -39,16 +39,16 @@ async function login({ username, password }) {
 }
  
  
-// async function getUserLogged() {
-//   const response = await fetchWithToken(`${BASE_URL}/users/me`);
-//   const responseJson = await response.json();
+async function getUserLogged() {
+  const response = await fetchWithToken(`${BASE_URL}/user/me`);
+  const responseJson = await response.json();
  
-//   if (responseJson.status !== 'success') {
-//     return { error: true, data: null };
-//   }
+  if (responseJson.status !== 'success') {
+    return { error: true, data: null };
+  }
  
-//   return { error: false, data: responseJson.data };
-// }
+  return { error: false, data: responseJson.data };
+}
  
 // async function addTicket({ name, tag }) {
 //   const response = await fetchWithToken(`${BASE_URL}/contacts`, {
@@ -69,8 +69,20 @@ async function login({ username, password }) {
 //   return { error: false };
 // }
  
-async function getTickets() {
-  const response = await fetchWithToken(`${BASE_URL}/ticket`);
+// async function getTickets() {
+//   const response = await fetchWithToken(`${BASE_URL}/ticket`);
+//   const responseJson = await response.json();
+ 
+//   if (responseJson.status !== 'success') {
+//     alert(responseJson.message);
+//     return { error: true, data: [] };
+//   }
+ 
+//   return { error: false, data: responseJson.data };
+// }
+
+async function getAllTickets() {
+  const response = await fetch(`${BASE_URL}/ticket[]`);
   const responseJson = await response.json();
  
   if (responseJson.status !== 'success') {
@@ -81,16 +93,33 @@ async function getTickets() {
   return { error: false, data: responseJson.data };
 }
 
-async function getTicketNoToken({noTicket}) {
-  const response = await fetch(`${BASE_URL}/ticket/cek?noTicket=${noTicket}`, {
+
+async function getAllInfo(ticket) {
+  const response = await fetch(`${BASE_URL}/ticket/findAll?ticket=${ticket}`);
+  const responseJson = await response.json();
+ 
+  if (responseJson.status !== 'success') {
+    alert(responseJson.message);
+    return { error: true, data: [] };
+  }
+ 
+  return { error: false, data: responseJson.data };
+}
+
+
+
+async function getTicketNoToken(noTicket) {
+  console.log(noTicket);
+  const response = await fetch(`${BASE_URL}/ticket/cek?ticket=${noTicket}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     },
   });
   const responseJson = await response.json();
- 
-  if (responseJson.status !== 'success') {
+  console.log(typeof responseJson.status);
+  console.log(responseJson.status);
+  if (responseJson.status !== 200) {
     alert(responseJson.message);
     return { error: true, data: [] };
   }
@@ -124,9 +153,10 @@ export {
   getAccessToken,
   putAccessToken,
   login,
-  // getUserLogged,
+  getUserLogged,
 //   addTicket,
-  getTickets,
+  getAllTickets,
+  getAllInfo,
   getTicketNoToken,
 //   editTicket,
   deleteTicket 

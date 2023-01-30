@@ -1,7 +1,6 @@
 import React from 'react';
 import { getTicketNoToken } from '../../utils/api';
 
-
 class InputTicket extends React.Component {
     constructor(props) {
         super(props);
@@ -16,8 +15,8 @@ class InputTicket extends React.Component {
 
     onSubmitHandler(event) {
         event.preventDefault();
-        console.log(this.state.keyword);
-        getTicketNoToken(this.state.keyword)
+        console.log(getTicketNoToken(this.state.keyword));
+        window.location.replace('/ticket-item-page');
     }
 
     onKeywordChangeHandler(event) {

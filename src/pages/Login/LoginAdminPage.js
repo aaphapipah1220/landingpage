@@ -5,7 +5,6 @@ import LoginInput from '../../component/Login/LoginInput';
 import { login } from '../../utils/api';
 
 function LoginAdminPage() {
-
     async function onLogin({username, password}) {
         const { error, data } = await login({ username, password });
 

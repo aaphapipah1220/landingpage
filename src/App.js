@@ -9,9 +9,12 @@ import CreateTicketPage from "./pages/Landingpage/CreateTicketPage";
 import CreateTicketFeedbackPage from "./pages/Landingpage/CreateTicketFeedbackPage";
 import TicketItemPage from './pages/Landingpage/TicketItemPage';
 
+import TicketItem from "./component/Landingpage/TicketItem";
+
 import LoginAdminPage from "./pages/Login/LoginAdminPage";
 
 import DashboardPage from './pages/Dashboard/DashboardPage';
+
 
 
 class App extends React.Component {
@@ -31,7 +34,16 @@ class App extends React.Component {
     } else {
         return <Redirect to="/login"></Redirect>
     }
+
 };
+
+  routeLP = (Component) => {
+    if(sessionStorage.getItem('accessToken')) {
+      return <Redirect to='/dashboard'></Redirect>
+    } else {
+      return <Component />
+    }
+  };
 
 
   render() {
@@ -39,17 +51,47 @@ class App extends React.Component {
       <React.Fragment>
         <BrowserRouter>
           <Switch>
-              <Route exact path="/" component={LandingPage}>
+              <Route exact path="/" render={() => {
+                return (
+                  this.routeLP(LandingPage)
+                )
+              }}>
               </Route>
-              <Route path="/login" component={LoginAdminPage}>
+              <Route path="/login" render={() => {
+                return (
+                  this.routeLP(LoginAdminPage)
+                )
+              }}>
               </Route>
-              <Route path="/create-ticket-visitor"component={CreateTicketPage}>
+              <Route path="/create-ticket-visitor" render={() => {
+                return (
+                  this.routeLP(CreateTicketPage)
+                )
+              }}>
               </Route>
-              <Route path="/create-ticket-feedback" component={CreateTicketFeedbackPage}>
+              <Route path="/create-ticket-feedback" render={() => {
+                return (
+                  this.routeLP(CreateTicketFeedbackPage)
+                )
+              }}>
               </Route>
-              <Route path="/ticket-item-page" component={TicketItemPage}>
+              <Route path="/ticket-item-page" render={() => {
+                return (
+                  this.routeLP(TicketItemPage)
+                )
+              }}>
               </Route>
-              <Route path="/dashboard" render={() => { return this.routeGuard (DashboardPage)}}> 
+              <Route path="/ticket-item" render={() => {
+                return (
+                  this.routeLP(TicketItem)
+                )
+              }}>
+              </Route>
+              <Route path="/dashboard" render={() => { 
+                return (
+                  this.routeGuard (DashboardPage)
+                  )
+                }}> 
               </Route> 
           </Switch>
       </BrowserRouter>
@@ -59,5 +101,4 @@ class App extends React.Component {
     
 }
        
-
 export default App

@@ -23,7 +23,7 @@
 
     --transition: all 400ms ease;
 
-    --width-device: 90%;
+    --width-device: 95%;
     --width-tablet: 70%;
     --width-desktop: 44%;
 }
@@ -167,5 +167,9 @@ input:hover {
 
     section > h2 {
         margin-bottom:  2rem;
+    }
+
+    .landingpage__body {
+        padding: 2rem;
     }
 }

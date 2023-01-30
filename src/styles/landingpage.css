@@ -11,7 +11,7 @@
     color: var(--color-blue);
     background: var(--color-primary);
     font-size: small;
-    border-radius: 1rem;
+    border-radius: 0.6rem;
 }
 
 .login-admin:hover {

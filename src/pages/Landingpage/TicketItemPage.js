@@ -1,14 +1,13 @@
 import React from "react";
 
-import TicketItem from "../../component/TicketItem";
+// import { getTicketNoToken } from "../../utils/api";
 
-import { findTicket } from '../../utils/api';
+import TicketItem from "../../component/Landingpage/TicketItem";
 
-// function TicketItemPageWrapper() {
-//     const []
-// }
 
 function TicketItemPage() {
+    // const ticketValue = getTicketNoToken();
+
     return (
         <TicketItem />
     )
