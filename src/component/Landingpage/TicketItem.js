@@ -15,9 +15,9 @@ class TicketItem extends React.Component {
             return (
                 <div>
                     {this.state.data.map((item) => (
-                        <li key={item.id}>
-                            <p>noTicket: {item.noTicket}</p>
-                        </li>
+                        <ul key={item.id}>
+                            <li>noTicket: {item.noTicket}</li>
+                        </ul>
                     ))}
                 </div>
             )

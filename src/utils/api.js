@@ -40,15 +40,17 @@ async function login({ username, password }) {
  
  
 async function getUserLogged() {
-  const response = await fetchWithToken(`${BASE_URL}/user/me`);
+  const response = await fetchWithToken(`${BASE_URL}/auth`);
   const responseJson = await response.json();
  
-  if (responseJson.status !== 'success') {
+  if (responseJson.status !== 200) {
     return { error: true, data: null };
   }
  
   return { error: false, data: responseJson.data };
 }
+
+
  
 // async function addTicket({ name, tag }) {
 //   const response = await fetchWithToken(`${BASE_URL}/contacts`, {
@@ -135,7 +137,7 @@ async function getTicketNoToken(noTicket) {
 // }
  
 async function deleteTicket(id) {
-  const response = await fetchWithToken(`${BASE_URL}/tickets/${id}`, {
+  const response = await fetchWithToken(`${BASE_URL}/ticket/${id}`, {
     method: 'DELETE',
   });
  

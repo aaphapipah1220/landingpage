@@ -1,19 +1,24 @@
 import React from "react";
 
 import Content from '../../component/Content';
+import Navigation from "../../component/Navigation";
 
-class DashboardPage extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // }
 
-    render() {
+function DashboardPage() {
+
+    function onLogout() {
+        sessionStorage.clear();
+        window.location.replace('/login');
+    }   
+    
+
         return (
             <section>
+                <Navigation logout={onLogout} />
                 <Content />
             </section>
         )
     }
-}
+
 
 export default DashboardPage;

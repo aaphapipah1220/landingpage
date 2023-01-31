@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 
-// import Navigation from "./component/Navigation";
+import Navigation from "./component/Navigation";
 
 import LandingPage from './pages/Landingpage/LandingPage';
 import CreateTicketPage from "./pages/Landingpage/CreateTicketPage";
@@ -51,54 +51,64 @@ class App extends React.Component {
       <React.Fragment>
         <BrowserRouter>
           <Switch>
-              <Route exact path="/" render={() => {
-                return (
-                  this.routeLP(LandingPage)
+
+            <Route exact path="/" render={() => {
+              return (
+                this.routeLP(LandingPage)
+              )
+            }}>
+            </Route>
+            <Route path="/login" render={() => {
+              return (
+                this.routeLP(LoginAdminPage)
+              )
+            }}>
+            </Route>
+            <Route path="/create-ticket-visitor" render={() => {
+              return (
+                this.routeLP(CreateTicketPage)
+              )
+            }}>
+            </Route>
+            <Route path="/create-ticket-feedback" render={() => {
+              return (
+                this.routeLP(CreateTicketFeedbackPage)
+              )
+            }}>
+            </Route>
+            <Route path="/ticket-item-page" render={() => {
+              return (
+                this.routeLP(TicketItemPage)
+              )
+            }}>
+            </Route>
+            <Route path="/ticket-item" render={() => {
+              return (
+                this.routeLP(TicketItem)
+              )
+            }}>
+            </Route>
+            <Route path="/dashboard" render={() => { 
+              return (
+                this.routeGuard (DashboardPage)
                 )
               }}>
-              </Route>
-              <Route path="/login" render={() => {
-                return (
-                  this.routeLP(LoginAdminPage)
+            </Route>
+            <Route path="/navigation" render={() => {  
+              return (
+                 this.routeGuard (Navigation) 
                 )
-              }}>
-              </Route>
-              <Route path="/create-ticket-visitor" render={() => {
-                return (
-                  this.routeLP(CreateTicketPage)
-                )
-              }}>
-              </Route>
-              <Route path="/create-ticket-feedback" render={() => {
-                return (
-                  this.routeLP(CreateTicketFeedbackPage)
-                )
-              }}>
-              </Route>
-              <Route path="/ticket-item-page" render={() => {
-                return (
-                  this.routeLP(TicketItemPage)
-                )
-              }}>
-              </Route>
-              <Route path="/ticket-item" render={() => {
-                return (
-                  this.routeLP(TicketItem)
-                )
-              }}>
-              </Route>
-              <Route path="/dashboard" render={() => { 
-                return (
-                  this.routeGuard (DashboardPage)
-                  )
-                }}> 
-              </Route> 
+            }}>  
+            </Route>
+
           </Switch>
-      </BrowserRouter>
+        </BrowserRouter>
       </React.Fragment>
-      );
+
+    )
   }
-    
 }
+                 
+         
        
 export default App
