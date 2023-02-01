@@ -1,13 +1,23 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 import TicketItem from "../../component/Landingpage/TicketItem";
 
 
-function TicketItemPage() {
+class TicketItemPage extends React.Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <TicketItem />
-    )
+        this.state = {
+            data: this.props.history.location.state
+        };
+    }
+
+    render() {
+        return (
+            <TicketItem data={this.state.data.data} />
+        )
+    }
 }
 
-export default TicketItemPage;
+export default withRouter(TicketItemPage);

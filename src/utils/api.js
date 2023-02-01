@@ -111,7 +111,6 @@ async function getAllInfo(ticket) {
 
 
 async function getTicketNoToken(noTicket) {
-  // console.log(noTicket);
   const response = await fetch(`${BASE_URL}/ticket/cek?ticket=${noTicket}`, {
     method: 'GET',
     headers: {
@@ -119,8 +118,7 @@ async function getTicketNoToken(noTicket) {
     },
   });
   const responseJson = await response.json();
-  // console.log(typeof responseJson.status);
-  console.log(responseJson.status);
+
   if (responseJson.status !== 200) {
     alert(responseJson.message);
     return { error: true, data: [] };

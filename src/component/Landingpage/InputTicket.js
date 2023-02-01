@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { getTicketNoToken } from '../../utils/api';
+import { useHistory, withRouter } from 'react-router-dom';
+
 
 class InputTicket extends React.Component {
     constructor(props) {
@@ -13,17 +16,19 @@ class InputTicket extends React.Component {
         this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
     }
 
-    onSubmitHandler(event) {
+    async onSubmitHandler(event) {
         event.preventDefault();
-        this.props.cek(this.state.keyword);
-        console.log(this.state.keyword);
-        
-        window.location.replace('/ticket-item-page');
+        const ticket = await getTicketNoToken(this.state.keyword)
+        console.log(ticket.data);
+        this.props.history.push({
+            pathname: `/ticket-item-page`, state: {
+                data: ticket.data
+            }
+        })
     }
 
     onKeywordChangeHandler(event) {
         const { value } = event.target;
-        console.log(this.state.keyword);
 
         this.setState(() => {
             return {
@@ -56,4 +61,4 @@ class InputTicket extends React.Component {
     }
 }
 
-export default InputTicket;
+export default withRouter(InputTicket);
