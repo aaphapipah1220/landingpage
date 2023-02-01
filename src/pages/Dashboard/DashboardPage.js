@@ -8,7 +8,7 @@ function DashboardPage() {
 
     function onLogout() {
         sessionStorage.clear();
-        window.location.replace('/login');
+        window.location.replace('/');
     }   
     
 

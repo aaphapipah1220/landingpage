@@ -111,7 +111,7 @@ async function getAllInfo(ticket) {
 
 
 async function getTicketNoToken(noTicket) {
-  console.log(noTicket);
+  // console.log(noTicket);
   const response = await fetch(`${BASE_URL}/ticket/cek?ticket=${noTicket}`, {
     method: 'GET',
     headers: {
@@ -119,7 +119,7 @@ async function getTicketNoToken(noTicket) {
     },
   });
   const responseJson = await response.json();
-  console.log(typeof responseJson.status);
+  // console.log(typeof responseJson.status);
   console.log(responseJson.status);
   if (responseJson.status !== 200) {
     alert(responseJson.message);
@@ -128,6 +128,7 @@ async function getTicketNoToken(noTicket) {
  
   return { error: false, data: responseJson.data };
 }
+
 
 // async function editTicket() {
 //     const response = await fetchWithToken(`${BASE_URL}/tickets`);
